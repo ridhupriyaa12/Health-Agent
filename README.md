@@ -1,70 +1,65 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-# The-Health-Insight-Agent-HIA-
-=======
->>>>>>> db799d2 (firstu commit)
 # 🩺 HIA (Health Insights Agent)
 
-AI Agent to analyze blood reports and provide detailed health insights.
+AI-powered agent to analyze blood reports and deliver detailed, personalized health insights.
 
 <p align="center">
-  <a href="https://github.com/harshhh28/hia/issues"><img src="https://img.shields.io/github/issues/harshhh28/hia"></a> 
-  <a href="https://github.com/harshhh28/hia/stargazers"><img src="https://img.shields.io/github/stars/harshhh28/hia"></a>
-  <a href="https://github.com/harshhh28/hia/network/members"><img src="https://img.shields.io/github/forks/harshhh28/hia"></a>
-  <a href="https://github.com/harshhh28/hia/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-  </a>
+  <a href="https://github.com/ridhupriyaa12/Health-Agent/issues"><img src="https://img.shields.io/github/issues/ridhupriyaa12/Health-Agent" alt="Issues"></a>
+  <a href="https://github.com/ridhupriyaa12/Health-Agent/stargazers"><img src="https://img.shields.io/github/stars/ridhupriyaa12/Health-Agent" alt="Stars"></a>
+  <a href="https://github.com/ridhupriyaa12/Health-Agent/network/members"><img src="https://img.shields.io/github/forks/ridhupriyaa12/Health-Agent" alt="Forks"></a>
+  <a href="https://github.com/ridhupriyaa12/Health-Agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
 </p>
 
 <p align="center">
-    Features | Tech Stack | Installation | Contributing | Author
+  <a href="https://github.com/ridhupriyaa12/Health-Agent"><img src="https://raw.githubusercontent.com/ridhupriyaa12/Health-Agent/main/public/HIA_demo.gif" alt="Usage Demo"></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/harshhh28/hia"><img src="https://raw.githubusercontent.com/harshhh28/hia/main/public/HIA_demo.gif" alt="Usage Demo"></a>
-</p>
+---
 
 ## 🌟 Features
 
-- Intelligent agent-based architecture with multi-model cascade system
-- In-context learning from previous analyses and knowledge base building
-- Medical report analysis with personalized health insights
-- PDF upload, validation and text extraction (up to 20MB)
-- Secure user authentication and session management
-- Session history with report analysis tracking
-- Modern, responsive UI with real-time feedback
+* Multi-model agent architecture for intelligent analysis
+* In-context learning with knowledge base updates
+* Personalized health insights from medical reports
+* PDF upload, validation, and extraction (up to 20MB)
+* Secure user authentication and session management
+* Session history with detailed analysis tracking
+* Modern, responsive UI with real-time feedback
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework**: Streamlit
-- **AI Integration**: Multi-model architecture via Groq
-  - Primary: meta-llama/llama-4-maverick-17b-128e-instruct
-  - Secondary: llama-3.3-70b-versatile
-  - Tertiary: llama-3.1-8b-instant
-  - Fallback: llama3-70b-8192
-- **Database**: Supabase
-- **PDF Processing**: PDFPlumber
-- **Authentication**: Supabase Auth
+* **Frontend**: Streamlit
+* **AI Models** (via Groq):
+
+  * Primary: `meta-llama/llama-4-maverick-17b-128e-instruct`
+  * Secondary: `llama-3.3-70b-versatile`
+  * Tertiary: `llama-3.1-8b-instant`
+  * Fallback: `llama3-70b-8192`
+* **Database**: Supabase
+* **PDF Processing**: PDFPlumber
+* **Authentication**: Supabase Auth
+
+---
 
 ## 🚀 Installation
 
-#### Requirements 📋
+### Requirements
 
-- Python 3.8+
-- Streamlit 1.30.0+
-- Supabase account
-- Groq API key
-- PDFPlumber
-- Python-magic-bin (Windows) or Python-magic (Linux/Mac)
+* Python 3.8+
+* Streamlit 1.30.0+
+* Supabase account
+* Groq API key
+* PDFPlumber
+* Python-magic-bin (Windows) / Python-magic (Linux/Mac)
 
-#### Getting Started 📝
+### Steps
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/harshhh28/hia.git
-cd hia
+git clone https://github.com/ridhupriyaa12/Health-Agent.git
+cd Health-Agent
 ```
 
 2. Install dependencies:
@@ -73,7 +68,7 @@ cd hia
 pip install -r requirements.txt
 ```
 
-3. Required environment variables (in `.streamlit/secrets.toml`):
+3. Configure environment variables in `.streamlit/secrets.toml`:
 
 ```toml
 SUPABASE_URL = "your-supabase-url"
@@ -82,76 +77,55 @@ GROQ_API_KEY = "your-groq-api-key"
 ```
 
 4. Set up Supabase database schema:
+   Use the SQL script provided at [`public/db/script.sql`](https://github.com/ridhupriyaa12/Health-Agent/blob/main/public/db/script.sql).
 
-The application requires the following tables in your Supabase database:
-
-![database schema](https://raw.githubusercontent.com/harshhh28/hia/main/public/db/schema.png)
-
-You can use the SQL script provided at `public/db/script.sql` <a href="https://www.github.com/harshhh28/hia/blob/main/public/db/script.sql">[link]</a> to set up the required database schema.
-
-(PS: You can turn off the email confimation on signup in Supabase settings -> signup -> email)
+> Tip: You can turn off email confirmation in Supabase settings under Signup → Email.
 
 5. Run the application:
 
 ```bash
-streamlit run src\main.py
+streamlit run src/main.py
 ```
+
+---
 
 ## 📁 Project Structure
 
 ```
-hia/
+Health-Agent/
 ├── requirements.txt
 ├── README.md
 ├── src/
-│   ├── main.py                 # Application entry point
-│   ├── auth/                   # Authentication related modules
+│   ├── main.py                 # Entry point
+│   ├── auth/                   # Authentication modules
 │   │   ├── auth_service.py     # Supabase auth integration
-│   │   └── session_manager.py  # Session management
-│   ├── components/             # UI Components
-│   │   ├── analysis_form.py    # Report analysis form
+│   │   └── session_manager.py  # Session handling
+│   ├── components/             # UI components
+│   │   ├── analysis_form.py    # Report form
 │   │   ├── auth_pages.py       # Login/Signup pages
-│   │   ├── footer.py          # Footer component
-│   │   └── sidebar.py         # Sidebar navigation
-│   ├── config/                # Configuration files
-│   │   ├── app_config.py      # App settings
-│   │   └── prompts.py         # AI prompts
-│   ├── services/              # Service integrations
-│   │   └── ai_service.py      # AI service integration
-│   ├── agents/                # Agent-based architecture components
-│   │   ├── agent_manager.py   # Agent management
-│   │   └── model_fallback.py  # Model fallback logic
-│   └── utils/                 # Utility functions
-│       ├── validators.py      # Input validation
-│       └── pdf_extractor.py   # PDF processing
+│   │   ├── footer.py           # Footer
+│   │   └── sidebar.py          # Sidebar navigation
+│   ├── config/                 # Configuration
+│   │   ├── app_config.py       # App settings
+│   │   └── prompts.py          # AI prompts
+│   ├── services/               # Integrations
+│   │   └── ai_service.py       # AI service integration
+│   ├── agents/                 # Agent logic
+│   │   ├── agent_manager.py    # Agent manager
+│   │   └── model_fallback.py   # Model fallback logic
+│   └── utils/                  # Utilities
+│       ├── validators.py       # Input validation
+│       └── pdf_extractor.py    # PDF processing
 ```
 
-## 👥 Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, the development workflow, coding standards, and more.
-
-We appreciate all contributions, from reporting bugs and improving documentation to implementing new features.
-
-## 👨‍💻 Contributors
-
-Thanks to all the amazing contributors who have helped improve this project!
-
-| Avatar | Name | GitHub | Role | Contributions | PR(s) | Notes |
-|--------|------|--------|------|---------------|-------|-------|
-| <img src="https://github.com/harshhh28.png" width="50px" height="50px" alt="harshhh28 avatar"/> | Harsh Gajjar | [harshhh28](https://github.com/harshhh28) | Project Creator & Maintainer | Core implementation, Documentation | N/A | Lead Developer |
-|  | NithuPriyaa |  | Project Creator & Maintainer | Core implementation, Documentation | N/A | Lead Developer |
-|  | Gaurav |  | Contributor | DB Schema, bugs |  | Database Design, bugs |
-
-<!-- To future contributors: Your profile will be added here when your PR is merged! -->
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/harshhh28/hia/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License. See [LICENSE](https://github.com/ridhupriyaa12/Health-Agent/blob/main/LICENSE) for details.
+
+---
 
 ## 🙋‍♂️ Author
 
 Created by NithuPriyaa
-<<<<<<< HEAD
-=======
->>>>>>> f195d4b (Push Health Insight Agent (HIA) project with credits updated)
->>>>>>> db799d2 (firstu commit)
